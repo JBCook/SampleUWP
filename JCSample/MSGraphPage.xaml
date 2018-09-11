@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="JCSample.MSGraphPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:JCSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
+
+                <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
+            </StackPanel>
+
+            <Button x:Name="LaunchURIButton" Content="LaunchURI" HorizontalAlignment="Left" Padding="5" Click="LaunchURI"  Visibility="Collapsed" FontFamily="Segoe Ui" VerticalAlignment="Top" Margin="360,68,0,0"/>
+            <Button x:Name="AppServiceButton" Content="Call App Service" HorizontalAlignment="Left" Padding="5" Click="AppService" Visibility="Collapsed" FontFamily="Segoe Ui" VerticalAlignment="Top" Margin="360,108,0,0"/>
+
+            <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="820,0,0,0" Visibility ="Collapsed" FontFamily="Segoe Ui" HorizontalAlignment="Left" Width="675" VerticalAlignment="Stretch"/>
+
+        </StackPanel>
+
+
+
+
+        <Button Content="Go Back To Main Page" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="321" Click="MainPage" FontWeight="Bold" FontSize="24" FontFamily="Dubai Medium" Background="#33000000"/>
+        <ListBox ItemsSource ="{Binding devicesFromGraph}" x:Name="DeviceFromGraphList" SelectionChanged="selectDeviceFromGraph" HorizontalAlignment="Left" Height="180" Margin="5,60,0,0" VerticalAlignment="Top" Width="315">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" IsColorFontEnabled="True"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="350,70,0,0" VerticalAlignment="Top" Width="150"/>
+    </Grid>
+</Page>
